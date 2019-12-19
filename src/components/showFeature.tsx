@@ -14,8 +14,27 @@ class ShowFeature extends React.Component<IProps> {
   render() {
     const { feature } = this.props
     return <>
-      <h5>{feature.properties.title}</h5>
       <div style={{ paddingBottom: 12 }}><a href="javascript:void(0);" onClick={this.handleShowAll} >Show All</a></div>
+      <h5>{feature.properties.title}</h5>
+      <table className="ui table">
+        <tbody>
+          <tr>
+            <td className="label">Magnitude</td>
+            <td>{feature.properties.mag}</td>
+          </tr>
+          <tr>
+            <td className="label">Time</td>
+            <td>{new Date(feature.properties.time).toLocaleDateString()} {new Date(feature.properties.time).toLocaleTimeString()}</td>
+          </tr>
+          <tr>
+            <td className="label">Location</td>
+            <td>{feature.properties.place}</td>
+          </tr>
+          <tr>
+            <td colSpan={2}><a href={feature.properties.url} target="_blank">More Information</a></td>
+          </tr>
+        </tbody>
+      </table>
 
     </>
   }

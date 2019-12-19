@@ -15,17 +15,21 @@ class ShowFeatures extends React.Component<IProps> {
   handleShowAll = () => PubSub.publish(messageTypes.showAllFeatures, {})
 
   renderFeature = (feature: any, index: number) => {
-    return <div key={index} style={{ paddingBottom: 8 }}>
-      <div><a href="javascript:void(0);" onClick={this.handleClickFeature.bind(null, feature)}>{feature.properties.place}</a></div>
-      <small>Mag {feature.properties.mag}</small>
-    </div>
+    return <tr key={index} style={{ paddingBottom: 8 }}>
+      <td>
+        <div><a href="javascript:void(0);" onClick={this.handleClickFeature.bind(null, feature)}>{feature.properties.place}</a></div>
+        <small>Mag {feature.properties.mag}</small>
+      </td>
+    </tr>
   }
 
   render() {
     return <>
-      <h5>{this.props.title}</h5>
       <div style={{ paddingBottom: 12 }}><a href="javascript:void(0);" onClick={this.handleShowAll} >Show All</a></div>
-      {this.props.features.map(this.renderFeature)}
+      <h5>{this.props.title}</h5>
+      <table className="ui table">
+        <tbody>{this.props.features.map(this.renderFeature)}</tbody>
+      </table>
     </>
   }
 }

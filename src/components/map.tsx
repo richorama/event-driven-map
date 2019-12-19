@@ -54,9 +54,7 @@ class MapComponent extends React.Component {
         features.push(feature)
       })
       if (features.length > 0) {
-        console.log(features[0])
         const thisId = features[0].get('code')
-        console.log(thisId)
         const originalFeature = this.geoJson.features.find((x: any) => x.properties.code === thisId)
         PubSub.publish(messageTypes.showSingleFeature, originalFeature)
       }
@@ -71,6 +69,7 @@ class MapComponent extends React.Component {
     this.subscribe(messageTypes.dataLoaded, this.dataLoaded)
     this.subscribe(messageTypes.filterByMag, this.filterByMag)
     this.subscribe(messageTypes.showAllFeatures, this.showAllFeatures)
+    this.subscribe(messageTypes.showSingleFeature, this.showSingleFeature)
   }
 
   filterByMag = (_: any, message: any) => {
@@ -83,6 +82,13 @@ class MapComponent extends React.Component {
   showAllFeatures = () => {
     this.source?.clear()
     this.source?.addFeatures(this.features)
+  }
+
+  showSingleFeature = (_:any, feature: any) => {
+    console.log(feature)
+    this.source?.clear()
+    const f = this.features.find(x => x.get('code') === feature.properties.code) ?? new Feature()
+    if (f) this.source?.addFeature(f)
   }
 
   dataLoaded = (_: any, geoJson: any) => {

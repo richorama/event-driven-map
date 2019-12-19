@@ -14,9 +14,11 @@ class MagSelector extends React.Component<IProps> {
 
   renderMag = (value: number) => {
     const count = this.props.geoJson.features.filter((x: any) => Math.floor(x.properties.mag) === value).length
-    return <div key={value}>
-      <a onClick={this.handleSelectMag.bind(null, value)} href="javascript:void(0);">Mag {value} to {value + 1} ({count})</a>
-    </div>
+    return <tr key={value}>
+      <td>
+        <a onClick={this.handleSelectMag.bind(null, value)} href="javascript:void(0);">Mag {value} to {value + 1} ({count})</a>
+      </td>
+    </tr>
   }
 
   render() {
@@ -32,7 +34,12 @@ class MagSelector extends React.Component<IProps> {
     }
 
     return <>
-      {values.map(this.renderMag)}
+      <h5>By Magnitude</h5>
+      <table className="ui table">
+        <tbody>
+          {values.map(this.renderMag)}
+        </tbody>
+      </table>
     </>
   }
 }
