@@ -77,11 +77,14 @@ class MapComponent extends React.Component {
     const { mag } = message
     const filteredFeatures = this.features.filter(x => Math.floor(x.get('mag')) === mag)
     this.source?.addFeatures(filteredFeatures)
+    this.map?.getView().setCenter(this.source?.getExtent())
   }
 
   showAllFeatures = () => {
     this.source?.clear()
     this.source?.addFeatures(this.features)
+
+    this.map?.getView().setZoom(2)
   }
 
   showSingleFeature = (_:any, feature: any) => {
@@ -89,6 +92,9 @@ class MapComponent extends React.Component {
     this.source?.clear()
     const f = this.features.find(x => x.get('code') === feature.properties.code) ?? new Feature()
     if (f) this.source?.addFeature(f)
+
+    this.map?.getView().setCenter(this.source?.getExtent())
+    this.map?.getView().setZoom(10)
   }
 
   dataLoaded = (_: any, geoJson: any) => {
