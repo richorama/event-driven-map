@@ -23,6 +23,7 @@ class MapComponent extends React.Component {
   features: Feature[] = []
   tokens: any[] = []
   source?: VectorSource
+  geoJson: any
 
   componentDidMount() {
     this.configureMap()
@@ -46,6 +47,20 @@ class MapComponent extends React.Component {
         zoom: 2
       })
     });
+
+    this.map.on('click', event => {
+      const features: any[] = []
+      this.map?.forEachFeatureAtPixel(event.pixel, feature => {
+        features.push(feature)
+      })
+      if (features.length > 0) {
+        console.log(features[0])
+        const thisId = features[0].get('code')
+        console.log(thisId)
+        const originalFeature = this.geoJson.features.find((x: any) => x.properties.code === thisId)
+        PubSub.publish(messageTypes.showSingleFeature, originalFeature)
+      }
+    })
   }
 
   subscribe = (messageType: messageTypes, func: Function) => {
@@ -71,6 +86,7 @@ class MapComponent extends React.Component {
   }
 
   dataLoaded = (_: any, geoJson: any) => {
+    this.geoJson = geoJson
     this.features = new GeoJSON({ dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857' }).readFeatures(geoJson)
     this.source = new VectorSource({
       features: this.features
