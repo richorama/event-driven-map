@@ -38,6 +38,8 @@
     ]
   },
   "devDependencies": {
-    "ol": "^6.1.1"
+    "@types/pubsub-js": "^1.5.18",
+    "ol": "^6.1.1",
+    "pubsub-js": "^1.7.0"
   }
 }

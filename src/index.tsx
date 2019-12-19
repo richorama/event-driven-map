@@ -4,9 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { getGeojson } from './lib/http'
+import PubSub from 'pubsub-js'
+import { messageTypes } from './lib/messageTypes';
 
-getGeojson().then((geojson) => {
-
+getGeojson().then(geojson => {
+  PubSub.publish(messageTypes.dataLoaded, geojson)
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));
