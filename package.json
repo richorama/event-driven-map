@@ -45,5 +45,5 @@
     "ol": "^6.1.1",
     "pubsub-js": "^1.7.0"
   },
-  "homepage": "http://richorama.github.io/event-drive-map"
+  "homepage": "http://richorama.github.io/event-driven-map"
 }
