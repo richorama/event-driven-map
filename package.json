@@ -20,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,5 +43,6 @@
     "@types/pubsub-js": "^1.5.18",
     "ol": "^6.1.1",
     "pubsub-js": "^1.7.0"
-  }
+  },
+  "homepage" : "http://richorama.github.io/event-drive-map"
 }

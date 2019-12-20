@@ -16,7 +16,10 @@ class MagSelector extends React.Component<IProps> {
     const count = this.props.geoJson.features.filter((x: any) => Math.floor(x.properties.mag) === value).length
     return <tr key={value}>
       <td>
-        <a onClick={this.handleSelectMag.bind(null, value)} href="javascript:void(0);">Mag {value} to {value + 1} ({count})</a>
+        <a onClick={this.handleSelectMag.bind(null, value)} href="javascript:void(0);">Mag {value} to {value + 1}</a>
+      </td>
+      <td>
+        <span style={{ float: 'right' }} className="ui label">{count}</span>
       </td>
     </tr>
   }
