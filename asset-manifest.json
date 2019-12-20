@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/event-drive-map/static/css/main.e751ad72.chunk.css",
+    "main.js": "/event-drive-map/static/js/main.0286fd3f.chunk.js",
+    "main.js.map": "/event-drive-map/static/js/main.0286fd3f.chunk.js.map",
+    "runtime-main.js": "/event-drive-map/static/js/runtime-main.bd8f8fd0.js",
+    "runtime-main.js.map": "/event-drive-map/static/js/runtime-main.bd8f8fd0.js.map",
+    "static/css/2.7997c105.chunk.css": "/event-drive-map/static/css/2.7997c105.chunk.css",
+    "static/js/2.2efe5ada.chunk.js": "/event-drive-map/static/js/2.2efe5ada.chunk.js",
+    "static/js/2.2efe5ada.chunk.js.map": "/event-drive-map/static/js/2.2efe5ada.chunk.js.map",
+    "index.html": "/event-drive-map/index.html",
+    "precache-manifest.5a1c5f683d2d469f5c6ef47a90f53ef8.js": "/event-drive-map/precache-manifest.5a1c5f683d2d469f5c6ef47a90f53ef8.js",
+    "service-worker.js": "/event-drive-map/service-worker.js",
+    "static/css/2.7997c105.chunk.css.map": "/event-drive-map/static/css/2.7997c105.chunk.css.map",
+    "static/css/main.e751ad72.chunk.css.map": "/event-drive-map/static/css/main.e751ad72.chunk.css.map",
+    "static/js/2.2efe5ada.chunk.js.LICENSE": "/event-drive-map/static/js/2.2efe5ada.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bd8f8fd0.js",
+    "static/css/2.7997c105.chunk.css",
+    "static/js/2.2efe5ada.chunk.js",
+    "static/css/main.e751ad72.chunk.css",
+    "static/js/main.0286fd3f.chunk.js"
+  ]
+}
