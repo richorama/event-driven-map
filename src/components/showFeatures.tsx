@@ -17,7 +17,7 @@ class ShowFeatures extends React.Component<IProps> {
   renderFeature = (feature: any, index: number) => {
     return <tr key={index} style={{ paddingBottom: 8 }}>
       <td>
-        <div><a href="javascript:void(0);" onClick={this.handleClickFeature.bind(null, feature)}>{feature.properties.place}</a></div>
+        <div><button className="link-button" onClick={this.handleClickFeature.bind(null, feature)}>{feature.properties.place}</button></div>
         <small>Mag {feature.properties.mag}</small>
       </td>
     </tr>
@@ -25,7 +25,7 @@ class ShowFeatures extends React.Component<IProps> {
 
   render() {
     return <>
-      <div style={{ paddingBottom: 12 }}><a href="javascript:void(0);" onClick={this.handleShowAll} >Show All</a></div>
+      <div style={{ paddingBottom: 12 }}><button className="link-button" onClick={this.handleShowAll} >Show All</button></div>
       <h5>{this.props.title}</h5>
       <table className="ui table">
         <tbody>{this.props.features.map(this.renderFeature)}</tbody>

@@ -14,7 +14,7 @@ class ShowFeature extends React.Component<IProps> {
   render() {
     const { feature } = this.props
     return <>
-      <div style={{ paddingBottom: 12 }}><a href="javascript:void(0);" onClick={this.handleShowAll} >Show All</a></div>
+      <div style={{ paddingBottom: 12 }}><button className="link-button" onClick={this.handleShowAll} >Show All</button></div>
       <h5>{feature.properties.title}</h5>
       <table className="ui table">
         <tbody>
@@ -31,7 +31,7 @@ class ShowFeature extends React.Component<IProps> {
             <td>{feature.properties.place}</td>
           </tr>
           <tr>
-            <td colSpan={2}><a href={feature.properties.url} target="_blank">More Information</a></td>
+            <td colSpan={2}><a href={feature.properties.url} target="_blank" rel="noopener noreferrer">More Information</a></td>
           </tr>
         </tbody>
       </table>
